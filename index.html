@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,13 +17,24 @@
     >
 
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
         :root {
+
             --background: #0b0d0f;
             --surface: #111417;
 
@@ -32,15 +45,22 @@
             --border: #24292e;
             --border-light: #191d21;
 
-            --accent: #ffffff;
         }
+
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 100px;
         }
 
         body {
+
             font-family: 'Inter', sans-serif;
+
             background: var(--background);
             color: var(--text);
 
@@ -64,6 +84,7 @@
         ===================================================== */
 
         header {
+
             min-height: 78vh;
 
             display: flex;
@@ -80,11 +101,13 @@
         }
 
         .hero {
-            width: min(1100px, 100%);
+
+            width: min(1150px, 100%);
             margin: 0 auto;
         }
 
         .hero-top {
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -93,8 +116,10 @@
         }
 
         .hero-label {
+
             font-size: 0.72rem;
             font-weight: 600;
+
             letter-spacing: 0.15em;
             text-transform: uppercase;
 
@@ -102,11 +127,13 @@
         }
 
         .hero-contact {
+
             display: flex;
-            gap: 22px;
+            gap: 24px;
         }
 
         .hero-contact a {
+
             color: var(--text-muted);
 
             font-size: 0.78rem;
@@ -122,6 +149,7 @@
         }
 
         header h1 {
+
             max-width: 950px;
 
             font-family: 'Space Grotesk', sans-serif;
@@ -130,57 +158,78 @@
             line-height: 0.9;
 
             letter-spacing: -0.065em;
+
             font-weight: 700;
 
             margin-bottom: 38px;
         }
 
         .tagline {
+
             max-width: 650px;
 
             color: var(--text-secondary);
 
             font-size: clamp(1rem, 2vw, 1.2rem);
+
             line-height: 1.7;
         }
 
 
         /* =====================================================
-           MAIN LAYOUT
+           PORTFOLIO LAYOUT
         ===================================================== */
 
         .portfolio {
+
             width: min(1150px, calc(100% - 80px));
+
             margin: 0 auto;
+
+            position: relative;
         }
 
-        .section {
+
+        /*
+            IMPORTANT:
+
+            There is ONLY ONE index now.
+
+            It occupies the first grid column and remains
+            sticky while the user scrolls through ALL sections.
+        */
+
+        .portfolio-layout {
+
             display: grid;
 
             grid-template-columns: 190px minmax(0, 1fr);
 
             gap: 80px;
 
-            padding: 120px 0;
-
-            border-top: 1px solid var(--border-light);
+            align-items: start;
         }
 
 
         /* =====================================================
-           LEFT INDEX
+           SINGLE GLOBAL INDEX
         ===================================================== */
 
-        .section-index {
-            position: sticky;
-            top: 80px;
+        .site-index {
 
-            align-self: start;
+            position: sticky;
+
+            top: 90px;
 
             height: fit-content;
+
+            padding-top: 120px;
+
+            z-index: 10;
         }
 
         .index-label {
+
             display: block;
 
             margin-bottom: 24px;
@@ -195,18 +244,21 @@
         }
 
         .index-links {
+
             display: flex;
+
             flex-direction: column;
 
-            gap: 10px;
+            gap: 12px;
         }
 
         .index-links a {
+
             position: relative;
 
             display: block;
 
-            padding-left: 0;
+            width: fit-content;
 
             color: #555d65;
 
@@ -216,21 +268,26 @@
             text-decoration: none;
 
             transition:
-                color 0.2s ease,
-                padding-left 0.2s ease;
+                color 0.25s ease,
+                padding-left 0.25s ease;
         }
 
         .index-links a:hover {
+
             color: var(--text-secondary);
-            padding-left: 8px;
+
+            padding-left: 9px;
         }
 
         .index-links a.active {
+
             color: var(--text);
-            padding-left: 8px;
+
+            padding-left: 9px;
         }
 
         .index-links a.active::before {
+
             content: "";
 
             position: absolute;
@@ -243,25 +300,47 @@
 
             transform: translateY(-50%);
 
-            background: white;
             border-radius: 50%;
+
+            background: white;
         }
 
 
         /* =====================================================
-           CONTENT
+           CONTENT COLUMN
         ===================================================== */
 
-        .section-content {
+        .content {
+
             min-width: 0;
         }
 
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        .section {
+
+            min-height: 70vh;
+
+            padding: 120px 0;
+
+            border-top: 1px solid var(--border-light);
+        }
+
+        .section:first-child {
+            border-top: none;
+        }
+
         .section-title {
+
             margin-bottom: 55px;
 
             font-family: 'Space Grotesk', sans-serif;
 
             font-size: clamp(2rem, 4vw, 3rem);
+
             line-height: 1.1;
 
             letter-spacing: -0.04em;
@@ -275,15 +354,18 @@
         ===================================================== */
 
         .bio {
-            max-width: 760px;
+
+            max-width: 780px;
         }
 
         .bio p {
+
             margin-bottom: 26px;
 
             color: var(--text-secondary);
 
             font-size: 1.05rem;
+
             line-height: 1.9;
         }
 
@@ -297,17 +379,21 @@
         ===================================================== */
 
         .projects {
+
             display: flex;
+
             flex-direction: column;
 
-            gap: 100px;
+            gap: 110px;
         }
 
         .project {
+
             position: relative;
         }
 
         .project-number {
+
             margin-bottom: 18px;
 
             color: var(--text-muted);
@@ -319,11 +405,13 @@
         }
 
         .project h3 {
+
             margin-bottom: 9px;
 
             font-family: 'Space Grotesk', sans-serif;
 
             font-size: clamp(1.5rem, 3vw, 2rem);
+
             line-height: 1.2;
 
             letter-spacing: -0.035em;
@@ -332,17 +420,20 @@
         }
 
         .project-role {
+
             margin-bottom: 30px;
 
             color: var(--text-muted);
 
             font-size: 0.76rem;
+
             font-weight: 600;
 
             letter-spacing: 0.04em;
         }
 
         .project p {
+
             max-width: 780px;
 
             margin-bottom: 20px;
@@ -350,10 +441,12 @@
             color: var(--text-secondary);
 
             font-size: 0.98rem;
+
             line-height: 1.85;
         }
 
         .project-highlights {
+
             max-width: 780px;
 
             margin-top: 32px;
@@ -365,10 +458,12 @@
             color: var(--text-muted);
 
             font-size: 0.9rem;
+
             line-height: 1.8;
         }
 
         .project-highlights strong {
+
             color: var(--text-secondary);
 
             font-weight: 600;
@@ -380,15 +475,18 @@
         ===================================================== */
 
         .skills {
+
             display: flex;
+
             flex-wrap: wrap;
 
             gap: 8px;
 
-            max-width: 700px;
+            max-width: 750px;
         }
 
         .skill-tag {
+
             padding: 8px 12px;
 
             border: 1px solid var(--border);
@@ -398,6 +496,7 @@
             color: #aeb5bc;
 
             font-size: 0.77rem;
+
             font-weight: 500;
 
             transition:
@@ -407,6 +506,7 @@
         }
 
         .skill-tag:hover {
+
             background: var(--surface);
 
             border-color: #383f46;
@@ -420,17 +520,21 @@
         ===================================================== */
 
         .experience {
+
             display: flex;
+
             flex-direction: column;
 
-            gap: 55px;
+            gap: 60px;
         }
 
         .experience-item {
+
             max-width: 780px;
         }
 
         .experience-item h3 {
+
             margin-bottom: 8px;
 
             font-family: 'Space Grotesk', sans-serif;
@@ -441,18 +545,22 @@
         }
 
         .experience-meta {
+
             margin-bottom: 22px;
 
             color: var(--text-muted);
 
             font-size: 0.76rem;
+
             font-weight: 500;
         }
 
         .experience-item p {
+
             color: var(--text-secondary);
 
             font-size: 0.98rem;
+
             line-height: 1.85;
         }
 
@@ -462,6 +570,7 @@
         ===================================================== */
 
         .contact {
+
             width: min(1150px, calc(100% - 80px));
 
             margin: 0 auto;
@@ -472,15 +581,18 @@
         }
 
         .contact-inner {
+
             display: flex;
 
             align-items: center;
+
             justify-content: space-between;
 
             gap: 40px;
         }
 
         .contact-title {
+
             font-family: 'Space Grotesk', sans-serif;
 
             font-size: 1.3rem;
@@ -491,6 +603,7 @@
         }
 
         .contact-links {
+
             display: flex;
 
             align-items: center;
@@ -499,9 +612,11 @@
         }
 
         .contact-links a {
+
             color: var(--text-muted);
 
             font-size: 0.8rem;
+
             font-weight: 500;
 
             text-decoration: none;
@@ -519,6 +634,7 @@
         ===================================================== */
 
         footer {
+
             width: min(1150px, calc(100% - 80px));
 
             margin: 0 auto;
@@ -538,85 +654,135 @@
         @media (max-width: 800px) {
 
             header {
+
                 min-height: 70vh;
 
                 padding: 60px 24px 80px;
             }
 
             .hero-top {
+
                 margin-bottom: 70px;
             }
 
             .hero-contact {
+
                 gap: 14px;
             }
 
             header h1 {
+
                 font-size: clamp(3.2rem, 15vw, 5rem);
             }
 
+
             .portfolio {
+
                 width: calc(100% - 48px);
             }
 
-            .section {
-                display: block;
 
-                padding: 80px 0;
+            /*
+                On mobile we no longer need a sidebar.
+                The SAME index becomes a horizontal navigation
+                bar above the content.
+            */
+
+            .portfolio-layout {
+
+                display: block;
             }
 
-            .section-index {
-                position: static;
+            .site-index {
 
-                margin-bottom: 45px;
+                position: sticky;
+
+                top: 0;
+
+                z-index: 100;
+
+                padding: 18px 0;
+
+                background: rgba(11, 13, 15, 0.94);
+
+                backdrop-filter: blur(12px);
+
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .index-label {
+
+                display: none;
             }
 
             .index-links {
+
                 flex-direction: row;
 
                 flex-wrap: wrap;
 
-                gap: 7px 18px;
+                gap: 8px 20px;
             }
 
             .index-links a.active,
             .index-links a:hover {
+
                 padding-left: 0;
             }
 
             .index-links a.active::before {
+
                 display: none;
             }
 
+
+            .section {
+
+                min-height: auto;
+
+                padding: 90px 0;
+            }
+
+
             .section-title {
+
                 margin-bottom: 40px;
             }
 
+
             .projects {
-                gap: 75px;
+
+                gap: 80px;
             }
 
+
             .contact {
+
                 width: calc(100% - 48px);
 
                 padding-top: 55px;
             }
 
             .contact-inner {
+
                 align-items: flex-start;
 
                 flex-direction: column;
             }
 
             .contact-links {
+
                 flex-wrap: wrap;
 
                 gap: 18px 25px;
             }
 
+
             footer {
+
                 width: calc(100% - 48px);
             }
+
         }
 
 
@@ -638,12 +804,10 @@
                 font-size: 1.45rem;
             }
 
-            .project-highlights {
-                padding-left: 14px;
-            }
         }
 
     </style>
+
 </head>
 
 
@@ -661,10 +825,11 @@
             <div class="hero-top">
 
                 <span class="hero-label">
-                    Computer Science & Engineering · Madrid, Spain
+                    Computer Engineering · Madrid
                 </span>
 
                 <nav class="hero-contact">
+
                     <a
                         href="https://github.com/jaime-ordovas-curbera"
                         target="_blank"
@@ -684,6 +849,7 @@
                     <a href="mailto:jocraha@gmail.com">
                         Email
                     </a>
+
                 </nav>
 
             </div>
@@ -696,7 +862,7 @@
 
 
             <p class="tagline">
-                Builder • Engineer • CSE @ UFV
+                Builder • Engineer • Last-year CS student in Madrid
             </p>
 
         </div>
@@ -711,16 +877,14 @@
     <main class="portfolio">
 
 
-        <!-- =================================================
-             ABOUT
-        ================================================= -->
+        <div class="portfolio-layout">
 
-        <section
-            class="section"
-            id="about"
-        >
 
-            <aside class="section-index">
+            <!-- =================================================
+                 ONE SINGLE GLOBAL INDEX
+            ================================================= -->
+
+            <aside class="site-index">
 
                 <span class="index-label">
                     Index
@@ -731,424 +895,28 @@
                     <a
                         href="#about"
                         class="active"
+                        data-section="about"
                     >
-                        About
-                    </a>
-
-                    <a href="#projects">
-                        Projects
-                    </a>
-
-                    <a href="#experience">
-                        Experience
-                    </a>
-
-                    <a href="#skills">
-                        Skills
-                    </a>
-
-                </nav>
-
-            </aside>
-
-
-            <div class="section-content">
-
-                <h2 class="section-title">
-                    About Me
-                </h2>
-
-
-                <div class="bio">
-
-                    <p>
-                        I'm a Computer Engineering student at Universidad
-                        Francisco de Vitoria, driven by the belief that great
-                        technology solves real problems. My focus is on building
-                        products that matter, whether that's designing blockchain
-                        voting systems to strengthen democratic processes or
-                        leading teams to ship web platforms under tight
-                        constraints.
-                    </p>
-
-                    <p>
-                        I particularly thrive in environments that demand both 
-                        technical depth and cross-functional collaboration. I care
-                        deeply about the problems I'm solving, not just the elegance 
-                        of the code. That's what pushes me to learn, to fail fast,
-                        and to create and ship things that users actually value.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             PROJECTS
-        ================================================= -->
-
-        <section
-            class="section"
-            id="projects"
-        >
-
-            <aside class="section-index">
-
-                <span class="index-label">
-                    Index
-                </span>
-
-                <nav class="index-links">
-
-                    <a href="#about">
                         About
                     </a>
 
                     <a
                         href="#projects"
-                        class="active"
+                        data-section="projects"
                     >
-                        Projects
-                    </a>
-
-                    <a href="#experience">
-                        Experience
-                    </a>
-
-                    <a href="#skills">
-                        Skills
-                    </a>
-
-                </nav>
-
-            </aside>
-
-
-            <div class="section-content">
-
-                <h2 class="section-title">
-                    Featured Projects
-                </h2>
-
-
-                <div class="projects">
-
-
-                    <!-- VTB -->
-
-                    <article class="project">
-
-                        <div class="project-number">
-                            01
-                        </div>
-
-                        <h3>
-                            VTB — Vote Through Blockchain
-                        </h3>
-
-                        <p class="project-role">
-                            Backend & Web3 Engineer · Hackathon Award Winner
-                        </p>
-
-                        <p>
-                            Designed and deployed a decentralized voting
-                            application that leverages blockchain technology
-                            to enhance transparency and prevent double-voting.
-                            The core challenge wasn't just building a smart
-                            contract, but rather solving the voter privacy paradox:
-                            how do you prove someone voted <em>without</em>
-                            revealing who they voted for?
-                        </p>
-
-                        <p>
-                            We implemented an HMAC-SHA256 nullifier scheme that
-                            allows voters to prove participation anonymously.
-                            The platform is currently under active development
-                            and approaching market release.
-                        </p>
-
-                        <div class="project-highlights">
-
-                            <strong>What I learned:</strong>
-
-                            how to design cryptographic systems for real-world
-                            constraints, the full cycle of blockchain development
-                            (Solidity, ethers.js, testnet deployment), and how
-                            to communicate complex technical ideas under
-                            pressure, knowing your audience and how to pitch 
-                            the product appropriately.
-
-                        </div>
-
-
-                        <div class="skills">
-
-                            <span class="skill-tag">React.js</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Solidity</span>
-                            <span class="skill-tag">Ethereum</span>
-                            <span class="skill-tag">Cryptography</span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- TUTORLINK -->
-
-                    <article class="project">
-
-                        <div class="project-number">
-                            02
-                        </div>
-
-                        <h3>
-                            TutorLink — International SCRUM Product
-                        </h3>
-
-                        <p class="project-role">
-                            Product Owner · The Hague University + UFV
-                        </p>
-
-                        <p>
-                            Led a cross-cultural engineering team from concept
-                            to functional MVP, managing the full product
-                            lifecycle across two countries and distributed
-                            teams. Translated business requirements into User
-                            Stories, ran sprint cycles in Azure DevOps, and
-                            navigated the complexity of aligning distributed
-                            efforts across time zones.
-                        </p>
-
-                        <p>
-                            The real challenge wasn't the tech stack, it was
-                            keeping a geographically scattered team synchronized
-                            and ensuring acceptance criteria were rigorous enough
-                            to ship confidently.
-                        </p>
-
-                        <div class="project-highlights">
-
-                            <strong>What I learned:</strong>
-
-                            product thinking and prioritization, how to unblock
-                            teams across organizational boundaries, and that
-                            leadership is often about asking the right questions
-                            rather than having all the answers.
-
-                        </div>
-
-
-                        <div class="skills">
-
-                            <span class="skill-tag">Product Management</span>
-                            <span class="skill-tag">SCRUM</span>
-                            <span class="skill-tag">Azure DevOps</span>
-                            <span class="skill-tag">Team Leadership</span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- REDES -->
-
-                    <article class="project">
-
-                        <div class="project-number">
-                            03
-                        </div>
-
-                        <h3>
-                            REDES — Intergenerational Mentorship Platform
-                        </h3>
-
-                        <p class="project-role">
-                            Co-founder · Hackathon Participant (Iberdrola, Next Job)
-                        </p>
-
-                        <p>
-                            Sketched a platform to connect young talent with
-                            senior professionals at Iberdrola, addressing youth
-                            unemployment through structured mentorship. The
-                            insight was simple: young people don't lack
-                            potential, they lack access to experienced guides
-                            and real opportunities.
-                        </p>
-
-                        <p>
-                            What struck me most was how a small technical system
-                            could unlock human value. This hackathon reinforced my
-                            belief that technology's real purpose is enabling
-                            people, not replacing them.
-                        </p>
-
-                        <div class="project-highlights">
-
-                            <strong>What I learned:</strong>
-
-                            the importance of understanding user needs deeply,
-                            and how to ship an MVP under time pressure while 
-                            keeping the social mission intact.
-
-                        </div>
-
-
-                        <div class="skills">
-
-                            <span class="skill-tag">Working Under Time Constrains</span>
-                            <span class="skill-tag">User Research</span>
-                            <span class="skill-tag">Product Strategy</span>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             EXPERIENCE
-        ================================================= -->
-
-        <section
-            class="section"
-            id="experience"
-        >
-
-            <aside class="section-index">
-
-                <span class="index-label">
-                    Index
-                </span>
-
-                <nav class="index-links">
-
-                    <a href="#about">
-                        About
-                    </a>
-
-                    <a href="#projects">
                         Projects
                     </a>
 
                     <a
                         href="#experience"
-                        class="active"
+                        data-section="experience"
                     >
-                        Experience
-                    </a>
-
-                    <a href="#skills">
-                        Skills
-                    </a>
-
-                </nav>
-
-            </aside>
-
-
-            <div class="section-content">
-
-                <h2 class="section-title">
-                    Beyond These Projects
-                </h2>
-
-
-                <div class="experience">
-
-
-                    <article class="experience-item">
-
-                        <h3>
-                            Blockchain Developer & Product Owner
-                        </h3>
-
-                        <div class="experience-meta">
-                            Cluster Madrid & Alastria · Sep 2025–Present
-                        </div>
-
-                        <p>
-                            Currently designing and shipping a centralized
-                            blockchain solution for the Blockchain Cluster
-                            President. Working directly with stakeholders,
-                            managing team coordination, and learning how to
-                            bring complex engineering problems to life in
-                            organizational contexts.
-                        </p>
-
-                    </article>
-
-
-                    <article class="experience-item">
-
-                        <h3>
-                            Volunteering
-                        </h3>
-
-                        <div class="experience-meta">
-                            Centro Abierto Catalejo · Sep 2024–Jun 2025
-                        </div>
-
-                        <p>
-                            Spent nine months supporting children facing
-                            economic hardship with schoolwork and education.
-                            This work grounded my understanding of why access
-                            matters—the smartest technical solution means
-                            nothing if it doesn't reach the people who need it
-                            most.
-                        </p>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             SKILLS
-        ================================================= -->
-
-        <section
-            class="section"
-            id="skills"
-        >
-
-            <aside class="section-index">
-
-                <span class="index-label">
-                    Index
-                </span>
-
-                <nav class="index-links">
-
-                    <a href="#about">
-                        About
-                    </a>
-
-                    <a href="#projects">
-                        Projects
-                    </a>
-
-                    <a href="#experience">
                         Experience
                     </a>
 
                     <a
                         href="#skills"
-                        class="active"
+                        data-section="skills"
                     >
                         Skills
                     </a>
@@ -1158,34 +926,371 @@
             </aside>
 
 
-            <div class="section-content">
+            <!-- =================================================
+                 ALL CONTENT
+            ================================================= -->
 
-                <h2 class="section-title">
-                    Technical Foundation
-                </h2>
+            <div class="content">
 
 
-                <div class="skills">
+                <!-- =================================================
+                     ABOUT
+                ================================================= -->
 
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C / C#</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Azure</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">Machine Learning</span>
-                    <span class="skill-tag">Solidity</span>
+                <section
+                    class="section"
+                    id="about"
+                >
 
-                </div>
+                    <h2 class="section-title">
+                        About Me
+                    </h2>
+
+                    <div class="bio">
+
+                        <p>
+                            I'm a Computer Engineering student at Universidad
+                            Francisco de Vitoria, driven by the belief that
+                            great technology solves real problems. My focus is
+                            on building products that matter—whether that's
+                            designing blockchain voting systems to strengthen
+                            democratic processes, leading teams to ship web
+                            platforms under tight constraints, or mentoring
+                            others to access opportunities they didn't know
+                            existed.
+                        </p>
+
+                        <p>
+                            I thrive in environments that demand both technical
+                            depth and cross-functional collaboration. I care
+                            deeply about the problems I'm solving, not just the
+                            elegance of the code. That's what pushes me to
+                            learn, to fail fast, and to ship things that users
+                            actually value.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     PROJECTS
+                ================================================= -->
+
+                <section
+                    class="section"
+                    id="projects"
+                >
+
+                    <h2 class="section-title">
+                        Featured Projects
+                    </h2>
+
+
+                    <div class="projects">
+
+
+                        <!-- VTB -->
+
+                        <article class="project">
+
+                            <div class="project-number">
+                                01
+                            </div>
+
+                            <h3>
+                                VTB — Vote Through Blockchain
+                            </h3>
+
+                            <p class="project-role">
+                                Backend & Web3 Engineer | Hackathon Award Winner
+                            </p>
+
+                            <p>
+                                Designed and deployed a decentralized voting
+                                application that leverages blockchain
+                                technology to enhance transparency and prevent
+                                double-voting. The core challenge wasn't just
+                                building a smart contract—it was solving the
+                                voter privacy paradox: how do you prove someone
+                                voted <em>without</em> revealing <em>who</em>
+                                they voted for?
+                            </p>
+
+                            <p>
+                                We implemented an HMAC-SHA256 nullifier scheme
+                                that allows voters to prove participation
+                                anonymously. The platform is currently under
+                                active development and approaching market
+                                release.
+                            </p>
+
+                            <div class="project-highlights">
+
+                                <strong>What I learned:</strong>
+
+                                how to design cryptographic systems for
+                                real-world constraints, the full cycle of
+                                blockchain development (Solidity, ethers.js,
+                                testnet deployment), and how to communicate
+                                complex technical ideas under pressure
+                                (20-minute Pecha Kucha presentation).
+
+                            </div>
+
+
+                            <div class="skills">
+
+                                <span class="skill-tag">
+                                    React.js
+                                </span>
+
+                                <span class="skill-tag">
+                                    Node.js
+                                </span>
+
+                                <span class="skill-tag">
+                                    Solidity
+                                </span>
+
+                                <span class="skill-tag">
+                                    Ethereum
+                                </span>
+
+                                <span class="skill-tag">
+                                    Cryptography
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- TUTORLINK -->
+
+                        <article class="project">
+
+                            <div class="project-number">
+                                02
+                            </div>
+
+                            <h3>
+                                TutorLink — International SCRUM Product
+                            </h3>
+
+                            <p class="project-role">
+                                Product Owner | The Hague University + UFV
+                            </p>
+
+                            <p>
+                                Led a cross-cultural engineering team from
+                                concept to functional MVP, managing the full
+                                product lifecycle across two countries and
+                                distributed teams. Translated business
+                                requirements into User Stories, ran sprint
+                                cycles in Azure DevOps, and navigated the
+                                complexity of aligning distributed efforts
+                                across time zones.
+                            </p>
+
+                            <p>
+                                The real challenge wasn't the tech stack—it was
+                                keeping a geographically scattered team
+                                synchronized and ensuring acceptance criteria
+                                were rigorous enough to ship confidently.
+                            </p>
+
+                            <div class="project-highlights">
+
+                                <strong>What I learned:</strong>
+
+                                product thinking and prioritization, how to
+                                unblock teams across organizational boundaries,
+                                and that leadership is often about asking the
+                                right questions rather than having all the
+                                answers.
+
+                            </div>
+
+
+                            <div class="skills">
+
+                                <span class="skill-tag">
+                                    Product Management
+                                </span>
+
+                                <span class="skill-tag">
+                                    SCRUM
+                                </span>
+
+                                <span class="skill-tag">
+                                    Azure DevOps
+                                </span>
+
+                                <span class="skill-tag">
+                                    Team Leadership
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- REDES -->
+
+                        <article class="project">
+
+                            <div class="project-number">
+                                03
+                            </div>
+
+                            <h3>
+                                REDES — Intergenerational Mentorship Platform
+                            </h3>
+
+                            <p class="project-role">
+                                Co-founder | Hackathon Participant
+                                (Iberdrola, La Nave)
+                            </p>
+
+                            <p>
+                                Built a platform to connect young talent with
+                                senior professionals at Iberdrola, addressing
+                                youth unemployment through structured
+                                mentorship. The insight was simple: young
+                                people don't lack potential—they lack access
+                                to experienced guides and real opportunities.
+                            </p>
+
+                            <p>
+                                What struck me most was how a small technical
+                                system could unlock human value. This project
+                                reinforced my belief that technology's real
+                                purpose is enabling people, not replacing them.
+                            </p>
+
+                            <div class="project-highlights">
+
+                                <strong>What I learned:</strong>
+
+                                the importance of understanding user needs
+                                deeply (we interviewed dozens of young people
+                                about their barriers to employment), and how
+                                to ship an MVP under time pressure while
+                                keeping the social mission intact.
+
+                            </div>
+
+
+                            <div class="skills">
+
+                                <span class="skill-tag">
+                                    Full-stack Development
+                                </span>
+
+                                <span class="skill-tag">
+                                    User Research
+                                </span>
+
+                                <span class="skill-tag">
+                                    Product Strategy
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     EXPERIENCE
+                ================================================= -->
+
+                <section
+                    class="section"
+                    id="experience"
+                >
+
+                    <h2 class="section-title">
+                        Beyond These Projects
+                    </h2>
+
+
+                    <div class="bio">
+
+                        <p>
+                            <strong>
+                                Blockchain Developer & Product Owner
+                            </strong>
+                            at Cluster Madrid & Alastria
+                            (Sep 2025–present): Currently designing and
+                            shipping a centralized blockchain solution for
+                            the Blockchain Cluster President. Working directly
+                            with stakeholders, managing team coordination, and
+                            learning how to bring complex engineering problems
+                            to life in organizational contexts.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Volunteering
+                            </strong>
+                            at Centro Abierto Catalejo
+                            (Sep 2024–Jun 2025): Spent nine months supporting
+                            children facing economic hardship with schoolwork
+                            and education. This work grounded my understanding
+                            of why access matters—the smartest technical
+                            solution means nothing if it doesn't reach the
+                            people who need it most.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     SKILLS
+                ================================================= -->
+
+                <section
+                    class="section"
+                    id="skills"
+                >
+
+                    <h2 class="section-title">
+                        Technical Foundation
+                    </h2>
+
+
+                    <div class="skills">
+
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C / C#</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Solidity</span>
+
+                    </div>
+
+                </section>
+
 
             </div>
 
-        </section>
-
+        </div>
 
     </main>
 
@@ -1239,14 +1344,14 @@
     <footer>
 
         <p>
-            Made with intention · Last updated Aug 2026
+            Made with intention. Last updated Aug 2026.
         </p>
 
     </footer>
 
 
     <!-- =====================================================
-         INDEX INTERACTION
+         INDEX LOGIC
     ===================================================== -->
 
     <script>
@@ -1254,45 +1359,81 @@
         const sections = document.querySelectorAll('.section');
         const indexLinks = document.querySelectorAll('.index-links a');
 
-        const observer = new IntersectionObserver(
-            (entries) => {
+        /*
+         * We determine the active section based on the point
+         * roughly 30% down the viewport.
+         *
+         * This is much more reliable than waiting for an entire
+         * section to become visible.
+         */
 
-                entries.forEach((entry) => {
+        function updateActiveSection() {
 
-                    if (entry.isIntersecting) {
+            const activationPoint = window.innerHeight * 0.30;
 
-                        const currentId = entry.target.id;
+            let currentSection = sections[0];
 
-                        indexLinks.forEach((link) => {
+            sections.forEach(section => {
 
-                            link.classList.remove('active');
+                const rect = section.getBoundingClientRect();
 
-                            if (
-                                link.getAttribute('href') ===
-                                `#${currentId}`
-                            ) {
-                                link.classList.add('active');
-                            }
+                if (rect.top <= activationPoint) {
+                    currentSection = section;
+                }
 
-                        });
+            });
 
-                    }
 
-                });
+            indexLinks.forEach(link => {
 
-            },
-            {
-                threshold: 0.25,
-                rootMargin: "-20% 0px -55% 0px"
-            }
+                link.classList.remove('active');
+
+                if (
+                    link.dataset.section === currentSection.id
+                ) {
+                    link.classList.add('active');
+                }
+
+            });
+
+        }
+
+
+        /*
+         * Update continuously while scrolling.
+         */
+
+        window.addEventListener(
+            'scroll',
+            updateActiveSection,
+            { passive: true }
         );
 
 
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
+        /*
+         * Also update after loading and resizing.
+         */
+
+        window.addEventListener(
+            'load',
+            updateActiveSection
+        );
+
+        window.addEventListener(
+            'resize',
+            updateActiveSection
+        );
+
+
+        /*
+         * Initial state.
+         */
+
+        updateActiveSection();
 
     </script>
 
+
 </body>
+
 </html>
