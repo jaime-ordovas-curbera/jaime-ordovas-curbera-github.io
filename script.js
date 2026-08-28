@@ -220,4 +220,45 @@ const smoothScroll = () => {
 
 window.addEventListener('scroll', smoothScroll, { passive: true });
 
+/* ============================================================
+   READING TIME CALCULATION (Optional: uncomment to auto-calculate)
+============================================================ */
+
+// This function calculates reading time based on actual text content
+// Currently: reading times are hardcoded in HTML, but you can regenerate them with this
+
+function calculateReadingTime(text) {
+    const wordsPerMinute = 200; // Average reading speed
+    const wordCount = text.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+    return readingTime;
+}
+
+function updateAllReadingTimes() {
+    const projects = document.querySelectorAll('.project');
+    
+    projects.forEach(project => {
+        // Get all text from the project (excluding title and role)
+        const textContent = project.querySelector('.project-role').textContent +
+                          Array.from(project.querySelectorAll('.project p'))
+                              .map(p => p.textContent)
+                              .join(' ');
+        
+        const readingTime = calculateReadingTime(textContent);
+        const readingTimeEl = project.querySelector('.reading-time');
+        
+        if (readingTimeEl) {
+            readingTimeEl.textContent = `${readingTime} min read`;
+            project.dataset.readingTime = readingTime;
+        }
+    });
+}
+
+// Uncomment the line below to auto-calculate reading times on page load
+// updateAllReadingTimes();
+
+// To regenerate reading times manually, run this in browser console:
+// updateAllReadingTimes(); console.log('Reading times updated');
+
 console.log('Portfolio loaded. Keyboard shortcuts: j (next project), k (prev project), / (search)');
+console.log('Tip: Run updateAllReadingTimes() in console to recalculate reading times');
