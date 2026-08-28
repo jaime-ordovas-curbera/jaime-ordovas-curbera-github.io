@@ -301,14 +301,9 @@ a {
 .project-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 16px;
     margin-bottom: 18px;
-}
-
-.project-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
 }
 
 .project-number {
@@ -319,21 +314,16 @@ a {
 }
 
 .reading-time {
-    color: var(--text-muted);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    padding: 4px 8px;
-    border-radius: 3px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all var(--transition-smooth);
+    color: #555d65;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: color var(--transition-smooth);
 }
 
 .project:hover .reading-time {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.12);
-    color: var(--text-secondary);
+    color: #69717a;
 }
 
 .project h3 {
@@ -629,13 +619,11 @@ footer {
     }
 
     .project-header {
-        flex-direction: column;
-        align-items: flex-start;
+        gap: 12px;
     }
 
-    .project-meta {
-        flex-direction: column;
-        gap: 8px;
+    .reading-time {
+        font-size: 0.65rem;
     }
 
     .contact {
