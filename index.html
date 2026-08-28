@@ -66,8 +66,8 @@
                 <section class="section" id="about" data-section="about">
                     <h2 class="section-title">About Me</h2>
                     <div class="bio">
-                        <p>I'm a Computer Engineering student at Universidad Francisco de Vitoria, driven by the belief that great technology solves real problems. My focus is on building products that matter, whether that's designing blockchain voting systems to strengthen democratic processes or leading teams to ship web platforms under tight constraints.</p>
-                        <p>I particularly thrive in environments that demand both technical depth and cross-functional collaboration. I care deeply about the problems I'm solving, not just the elegance of the code. That's what pushes me to learn, to fail fast, and to create and ship things that users actually value.</p>
+                        <p>I'm a Computer Engineering student at Universidad Francisco de Vitoria. I build products that matter, not because it's ambitious to say, but because I've learned that technology's real value lies in solving tangible problems for real people. I care about three things when I work: shipping things (bias to action), learning under pressure (real constraints teach faster than safe environments), and treating my collaborators' time as sacred.</p>
+                        <p>Whether I'm designing cryptographic voting systems to strengthen democratic processes, managing distributed teams across time zones, or making rapid decisions under 6-hour hackathon constraints, I operate from the same principle: understand the problem deeply, move fast with conviction, and build something that works before it's perfect. I've learned that external perspectives are where real insights live—blind spots that my own familiarity hides.</p>
                     </div>
                 </section>
 
@@ -78,78 +78,111 @@
                     <div class="projects">
 
                         <!-- VTB Project -->
-                        <article class="project" data-project="vtb" data-reading-time="4">
+                        <article class="project" data-project="vtb" data-reading-time="5">
                             <div class="project-header">
                                 <div class="project-number">01</div>
-                                <span class="reading-time">4 min read</span>
+                                <span class="reading-time">5 min read</span>
                             </div>
                             <h3>VTB — Vote Through Blockchain</h3>
-                            <p class="project-role">Backend & Web3 Engineer | Hackathon Award Winner</p>
+                            <p class="project-role">Web3 Engineer & Frontend Developer | Award-Winning Decentralized Voting System</p>
 
-                            <p>Designed and deployed a decentralized voting application that leverages blockchain technology to enhance transparency and prevent double-voting. The core challenge wasn't just building a smart contract, but rather solving the voter privacy paradox: how do you prove someone voted <em>without</em> revealing who they voted for?</p>
+                            <p>Built a hybrid Web2+Web3 voting platform that solves a fundamental democratic problem: how do you verify election results without trusting a central authority? Traditional institutional voting—whether paper or digital—asks participants to trust someone counting correctly. VTB eliminates that trust entirely.</p>
 
-                            <p>We implemented an HMAC-SHA256 nullifier scheme that allows voters to prove participation anonymously. The platform is currently under active development and approaching market release.</p>
+                            <p>The technical core is an HMAC-SHA256 nullifier scheme anchored to an Ethereum Sepolia smart contract. It accomplishes something cryptographically elegant: prove someone voted without revealing who they voted for. Every vote is publicly verifiable on Etherscan (no account needed), yet completely anonymous. One vote per person is mathematically guaranteed. My specific contributions: blockchain audit interface, live vote feed, and custom UI/UX landing pages for institutional deployment contexts.</p>
+
+                            <p>The platform supports multi-tenant architecture (isolated environments for multiple institutions), email-domain identity verification (integrates with existing institutional systems), and bilingual interface (EN/ES). Beyond technical achievement, it contributes to UN SDG 16 (peaceful and inclusive societies) and eliminates environmental waste—Spain's 2023 national elections cost €403 million and generated thousands of tonnes of paper waste that VTB avoids entirely through digitalization.</p>
 
                             <div class="project-highlights">
-                                <strong>What I learned:</strong> how to design cryptographic systems for real-world constraints, the full cycle of blockchain development (Solidity, ethers.js, testnet deployment), and how to communicate complex technical ideas under pressure.
+
+                                <strong>Technical & Learning Depth:</strong>
+
+                                Every core technology was learned from scratch under real deadline pressure: Solidity smart contracts, ethers.js Web3 integration, Ethereum testnet deployment architecture, Vercel frontend hosting, Render backend infrastructure, React 18 with Vite. The team discovered that deployment constraints (SQLite resets, blockchain ID synchronization issues) taught more than any classroom exercise—failure was immediately visible in production. External feedback proved invaluable: a CSV bulk-import suggestion from our professor (someone who understood institutional workflows but not our code) and an onboarding tutorial request from a first-time user who couldn't navigate the site became critical features. The learning was that internal developer familiarity is the enemy of usability feedback. The people whose opinions matter most are the ones who've never seen the product before.
+
                             </div>
 
                             <div class="skills">
-                                <span class="skill-tag">React.js</span>
-                                <span class="skill-tag">Node.js</span>
                                 <span class="skill-tag">Solidity</span>
                                 <span class="skill-tag">Ethereum</span>
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">ethers.js</span>
                                 <span class="skill-tag">Cryptography</span>
+                                <span class="skill-tag">Vercel</span>
+                                <span class="skill-tag">Render</span>
                             </div>
                         </article>
 
                         <!-- TutorLink Project -->
-                        <article class="project" data-project="tutorlink" data-reading-time="4">
+                        <article class="project" data-project="tutorlink" data-reading-time="5">
                             <div class="project-header">
                                 <div class="project-number">02</div>
-                                <span class="reading-time">4 min read</span>
+                                <span class="reading-time">5 min read</span>
                             </div>
                             <h3>TutorLink — International SCRUM Product</h3>
-                            <p class="project-role">Product Owner | The Hague University + UFV</p>
+                            <p class="project-role">Product Owner & DevOps Architect | Cross-Continental Distributed Team</p>
 
-                            <p>Led a cross-cultural engineering team from concept to functional MVP, managing the full product lifecycle across two countries and distributed teams. Translated business requirements into User Stories, ran sprint cycles in Azure DevOps, and navigated the complexity of aligning distributed efforts across time zones.</p>
+                            <p>Led a distributed engineering team across two countries (Spain & Netherlands) from concept to functional MVP over 4 sprints. Designed and implemented the entire DevOps infrastructure from scratch: Azure DevOps pipeline configuration, sprint planning/review/retrospective workflows, sprint documentation, and CI/CD strategy. Translated business requirements into User Stories with rigorous acceptance criteria, managed sprint backlogs, conducted sprint reviews on live deployments (not localhost), and ran retrospectives that actually changed how the team worked—not post-mortems, but forward-looking iterations.</p>
 
-                            <p>The real challenge wasn't the tech stack, it was keeping a geographically scattered team synchronized and ensuring acceptance criteria were rigorous enough to ship confidently.</p>
+                            <p>The biggest challenge wasn't technical—it was cross-cultural. Working with Netherlands students meant understanding fundamentally different approaches to feedback, decision-making, and work rhythm. Dutch directness and Spanish relationship-building required deliberately synchronizing on communication norms. Time zone alignment (6+ hour difference) meant sprint planning required deep async preparation, clear written documentation, and mutual trust that execution would happen without constant check-ins. Synchronization isn't automatic; it requires intentional design.</p>
 
                             <div class="project-highlights">
-                                <strong>What I learned:</strong> product thinking and prioritization, how to unblock teams across organizational boundaries, and that leadership is often about asking the right questions rather than having all the answers.
+
+                                <strong>Process & Team Learning:</strong>
+
+                                DevOps design taught me that infrastructure is not just tooling—it's team communication made visible. Azure DevOps becomes the single source of truth: sprints, user stories, acceptance criteria, and deployment status all live there. The team learned that sprint reviews on live deployments force you to face real infrastructure issues early (Render cold starts, CORS configuration, persistent storage gaps) instead of discovering them during final presentation. We also learned through iteration: Sprint 3 taught us that undocumented feature changes break distributed teams, so Sprint 4 adopted a concrete rule: any change affecting multiple files requires a GitHub issue before code is written. The effect was immediate—integration conflicts dropped significantly and pull request reviews became genuine checkpoints. Cross-cultural collaboration works when you treat different working styles as information, not friction. The Dutch preference for directness and the Spanish expectation of personal rapport aren't opposing forces; they're complementary if you acknowledge them explicitly and build process around both.
+
                             </div>
 
                             <div class="skills">
-                                <span class="skill-tag">Product Management</span>
-                                <span class="skill-tag">SCRUM</span>
                                 <span class="skill-tag">Azure DevOps</span>
-                                <span class="skill-tag">Team Leadership</span>
+                                <span class="skill-tag">SCRUM Methodology</span>
+                                <span class="skill-tag">Product Ownership</span>
+                                <span class="skill-tag">CI/CD Pipeline Design</span>
+                                <span class="skill-tag">Sprint Planning</span>
+                                <span class="skill-tag">Cross-functional Leadership</span>
+                                <span class="skill-tag">Distributed Team Management</span>
                             </div>
                         </article>
 
-                        <!-- REDES Project -->
-                        <article class="project" data-project="redes" data-reading-time="3">
+                        <!-- 2025 Next Job Hackathon (Iberdrola) -->
+                        <article class="project" data-project="hackathon" data-reading-time="4">
                             <div class="project-header">
                                 <div class="project-number">03</div>
-                                <span class="reading-time">3 min read</span>
+                                <span class="reading-time">4 min read</span>
                             </div>
-                            <h3>REDES — Intergenerational Mentorship Platform</h3>
-                            <p class="project-role">Co-founder | Hackathon Participant (Iberdrola, Next Job)</p>
+                            <h3>2025 Next Job Hackathon (Iberdrola)</h3>
+                            <p class="project-role">Technical Lead | 6-Hour Cross-Functional Sprint with New Team</p>
 
-                            <p>Built a platform to connect young talent with senior professionals at Iberdrola, addressing youth unemployment through structured mentorship. The insight was simple: young people don't lack potential, they lack access to experienced guides and real opportunities.</p>
+                            <p>Shipped a working mentorship platform in 6 hours as the sole technical member of a 4-person team (business, finance, and myself). Starting constraint: complete strangers who had never worked together, with fundamentally different professional backgrounds and no shared vocabulary. Ending constraint: half the time was gone by our first actual code decision.</p>
 
-                            <p>What struck me most was how a small technical system could unlock human value. This hackathon reinforced my belief that technology's real purpose is enabling people, not replacing them.</p>
+                            <p>The critical learning: <strong>speed of decision-making beats perfect deliberation under real pressure.</strong> We could have spent hour 1 philosophizing about product vision. Instead, the team made fast, directional calls: which features matter most, who owns what decisions, what's the MVP timeline. Every minute spent debating was a minute not building. This required me to make rapid technical trade-offs (what can we build fast, what do we skip, where do we accept technical debt for speed) and trust that my teammates' business and finance expertise would catch gaps I couldn't see.</p>
+
+                            <p>Working with new colleagues under extreme constraint forced immediate clarity about who owns what. The business person owned user narrative and scope. The finance person owned data integrity and risk. I owned build speed and feasibility. We didn't debate domain boundaries—we delegated within them. This only works when everyone trusts that others are operating from clarity about their expertise, not protecting territory.</p>
 
                             <div class="project-highlights">
-                                <strong>What I learned:</strong> the importance of understanding user needs deeply, and how to ship an MVP under time pressure while keeping the social mission intact.
+
+                                <strong>Team Dynamics & Decision-Making Learning:</strong>
+
+                                Fast decisions with conviction beat slow decisions with consensus under constraint. Deliberation has its place; 360 minutes to ship is not it. The second insight: new team members aren't a liability—they're an advantage if you use their fresh perspectives instead of burdening them with your previous decisions. My teammates asked "why are we doing this?" about features I would have taken for granted from prior similar projects. Those questions made the product sharper. The third learning: cross-functional work succeeds when each discipline sets their own standards and holds them independently. I didn't ask the business person to validate technical choices—I validated we could build them in time. They didn't ask me to make strategy—they made it and I executed. Clear boundaries made collaboration efficient rather than political. Working with completely new colleagues also stripped away assumption: I couldn't rely on shared history or implied context. Everything had to be explicit. That forced better communication.
+
                             </div>
 
                             <div class="skills">
-                                <span class="skill-tag">Working Under Constraints</span>
-                                <span class="skill-tag">User Research</span>
-                                <span class="skill-tag">Product Strategy</span>
+
+                                <span class="skill-tag">Rapid Prototyping</span>
+
+                                <span class="skill-tag">Technical Decision-Making Under Pressure</span>
+
+                                <span class="skill-tag">Cross-Functional Collaboration</span>
+
+                                <span class="skill-tag">Team Coordination</span>
+
+                                <span class="skill-tag">Bias to Action</span>
+
+                                <span class="skill-tag">New Team Integration</span>
+
                             </div>
+
                         </article>
 
                     </div>
