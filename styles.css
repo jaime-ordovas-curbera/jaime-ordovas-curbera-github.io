@@ -368,8 +368,104 @@ a {
 }
 
 /* ============================================================
+   META TEXT (dates & light annotations)
+============================================================ */
+
+.meta-text {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+.project-date {
+    display: block;
+    margin: -2px 0 14px;
+}
+
+/* ============================================================
+   AGGREGATE EXPERIENCE
+============================================================ */
+
+.aggregate-group {
+    max-width: 780px;
+    margin-bottom: 55px;
+}
+
+.aggregate-group:last-child {
+    margin-bottom: 0;
+}
+
+.aggregate-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 18px;
+}
+
+.aggregate-header h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+}
+
+.aggregate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+}
+
+.aggregate-list li {
+    position: relative;
+    padding-left: 22px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.85;
+}
+
+.aggregate-list li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--text-muted);
+}
+
+.aggregate-list li strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* ============================================================
    SKILLS
 ============================================================ */
+
+.skills-groups {
+    margin-top: 35px;
+}
+
+.skills-group {
+    margin-bottom: 36px;
+}
+
+.skills-group:last-child {
+    margin-bottom: 0;
+}
+
+.skills-category {
+    margin-bottom: 14px;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
 
 .skills {
     display: flex;
@@ -377,6 +473,10 @@ a {
     gap: 8px;
     max-width: 750px;
     margin-top: 35px;
+}
+
+.skills-groups .skills {
+    margin-top: 0;
 }
 
 .skill-tag {
