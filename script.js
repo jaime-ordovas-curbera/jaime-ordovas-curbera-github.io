@@ -52,7 +52,7 @@ indexLinks.forEach(link => {
         e.preventDefault();
         const targetId = link.getAttribute('href');
         const targetSection = document.querySelector(targetId);
-        
+
         if (targetSection) {
             const headerOffset = 90;
             const elementPosition = targetSection.getBoundingClientRect().top + window.scrollY;
@@ -123,7 +123,7 @@ const keyboardShortcuts = {
 function scrollToNextProject() {
     const currentProject = document.querySelector('.project:in-viewport');
     const nextProject = currentProject?.nextElementSibling;
-    
+
     if (nextProject && nextProject.classList.contains('project')) {
         nextProject.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -132,7 +132,7 @@ function scrollToNextProject() {
 function scrollToPreviousProject() {
     const currentProject = document.querySelector('.project:in-viewport');
     const prevProject = currentProject?.previousElementSibling;
-    
+
     if (prevProject && prevProject.classList.contains('project')) {
         prevProject.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -236,17 +236,17 @@ function calculateReadingTime(text) {
 
 function updateAllReadingTimes() {
     const projects = document.querySelectorAll('.project');
-    
+
     projects.forEach(project => {
         // Get all text from the project (excluding title and role)
         const textContent = project.querySelector('.project-role').textContent +
-                          Array.from(project.querySelectorAll('.project p'))
-                              .map(p => p.textContent)
-                              .join(' ');
-        
+            Array.from(project.querySelectorAll('.project p'))
+                .map(p => p.textContent)
+                .join(' ');
+
         const readingTime = calculateReadingTime(textContent);
         const readingTimeEl = project.querySelector('.reading-time');
-        
+
         if (readingTimeEl) {
             readingTimeEl.textContent = `${readingTime} min read`;
             project.dataset.readingTime = readingTime;
